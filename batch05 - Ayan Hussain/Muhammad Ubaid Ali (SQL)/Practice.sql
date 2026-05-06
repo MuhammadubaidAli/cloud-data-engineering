@@ -70,8 +70,57 @@ order by
 
 -- LIMITING ROWS
 
-SELECT TOP 10 * FROM production.products
+SELECT TOP 10 
+       product_id, product_name, list_price 
+FROM production.products
 ORDER BY list_price DESC;
+
+
+SELECT TOP 2 PERCENT 
+*
+FROM
+Production.products
+ORDER BY list_price;
+
+--OFFSET -- FETCH 
+
+SELECT 
+* 
+FROM production.products
+ORDER BY list_price DESC
+OFFSET 10 ROWS
+FETCH NEXT 10 ROWS ONLY;
+
+SELECT 
+ * 
+FROM production.products
+ORDER BY list_price DESC
+OFFSET 0 ROWS
+FETCH NEXT 10 ROWS ONLY;
+
+SELECT 
+ * 
+FROM 
+ sales.customers
+ORDER BY street;
+
+
+SELECT
+    *
+FROM sales.order_items oi
+FULL JOIN production.products p
+    ON p.product_id = oi.product_id
+ORDER BY order_id;
+
+
+
+
+
+
+
+
+
+
 
 
 
