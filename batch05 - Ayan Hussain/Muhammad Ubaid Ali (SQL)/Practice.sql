@@ -105,15 +105,68 @@ FROM
 ORDER BY street;
 
 
-SELECT
-    *
-FROM sales.order_items oi
-FULL JOIN production.products p
-    ON p.product_id = oi.product_id
-ORDER BY order_id;
+--SELECT DISTINCT COLUMN_NAME 
+-- FROM TABLE_NAME
+
+SELECT * 
+FROM sales.customers
+ORDER BY CITY;
 
 
+SELECT DISTINCT CITY 
+FROM sales.customers
+ORDER BY CITY;
 
+SELECT DISTINCT state  
+FROM sales.customers
+ORDER BY state;
+
+
+SELECT DISTINCT MODEL_YEAR  
+FROM production.products
+ORDER BY MODEL_YEAR;
+
+
+SELECT DISTINCT CITY, STATE
+FROM sales.customers ;
+
+SELECT DISTINCT STATE, CITY
+FROM sales.customers ;
+
+SELECT * FROM sales.customers;
+
+SELECT phone 
+FROM sales.customers
+WHERE phone IS NOT NULL
+ORDER BY phone;
+
+
+SELECT DISTINCT phone 
+FROM sales.customers
+ORDER BY phone;
+
+-- LOGICAL OPERATORS 
+-- AND | OR
+SELECT * 
+FROM production.products
+WHERE category_id = 1 AND list_price > 400
+ORDER BY list_price;
+
+SELECT * 
+FROM production.products
+WHERE category_id = 1 OR list_price > 400
+ORDER BY list_price DESC;
+
+SELECT * 
+FROM production.products
+WHERE list_price > 300 AND model_year = 2018
+ORDER BY list_price DESC;
+
+
+SELECT *
+FROM production.products
+WHERE  list_price > 1000 AND (brand_id = 1 OR brand_id=2)
+ORDER BY brand_id;
 
 
 
