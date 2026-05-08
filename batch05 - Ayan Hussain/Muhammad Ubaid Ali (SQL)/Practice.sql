@@ -169,7 +169,67 @@ WHERE  list_price > 1000 AND (brand_id = 1 OR brand_id=2)
 ORDER BY brand_id;
 
 
+-- like 
+-- Logical operator that check or watches with specified string/text
+-- Used with wild cards % _ ^ []
 
+-- % Represent multiple characters
+SELECT customer_id, first_name, last_name from sales.customers
+WHERE first_name like '%g'
+ORDER BY first_name;
+
+SELECT customer_id, first_name, last_name  
+FROM sales.customers
+WHERE first_name like '%s' AND last_name like '%g';
+ 
+
+SELECT customer_id, first_name, last_name  
+FROM sales.customers
+WHERE first_name like 't%s';
+ 
+
+SELECT customer_id, first_name, last_name  
+FROM sales.customers
+WHERE first_name like '_a%';
+ 
+ --first name must be 'a'
+ SELECT customer_id, first_name, last_name
+ FROM sales.customers
+ WHERE first_name NOT like 'a%'
+ ORDER BY first_name;
+
+
+ --JOINS
+
+
+ CREATE SCHEMA hr;
+ go
+
+ CREATE TABLE hr.candidates(
+ id int primary key identity,
+ fullname varchar(100) not null);
+ 
+
+ CREATE TABLE hr.employess(
+ id int primary key identity,
+ fullname varchar(100) not null);
+
+
+ INSERT INTO 
+      hr.candidates(full_name)
+values
+     ('Saad')
+     ('Mohsin')
+     ('Owais')
+     ('Haseeb')
+
+insert into  
+    hr.employess(fullname)
+values
+     ('Saad')
+     ('Mohsin')
+     ('Owais')
+     ('Haseeb')
 
 
 
