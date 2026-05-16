@@ -94,7 +94,7 @@ SELECT
 FROM sales.orders
 GROUP BY customer_id
 HAVING COUNT(order_id) > 5;
--- Aesa koi customer hi nhi jisne kbh 5 se ziada orders kie hon.
+-- There is nothing customer who ordet greater then 5
 
 
 
@@ -203,7 +203,7 @@ WHERE customer_id NOT IN (
     SELECT customer_id
     FROM sales.orders
 );
--- Aesa Koi customer hi nhi jisne kbh koi order na kia ho.
+There is 0 customer who order.
 
 
 
@@ -273,6 +273,9 @@ GROUP BY CONCAT(c.first_name, ' ', c.last_name)
 HAVING SUM(oi.quantity * oi.list_price * (1 - oi.discount)) > 10000
 ORDER BY total_spent DESC;
 
+-- ============================================================
+--  END OF ASSIGNMENT 03
+-- ============================================================
 
 
 
