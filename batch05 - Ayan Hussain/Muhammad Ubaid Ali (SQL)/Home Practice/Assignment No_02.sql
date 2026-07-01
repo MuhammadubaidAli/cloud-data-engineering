@@ -111,6 +111,9 @@ ORDER BY order_id ASC;
 -- ============================================================
 
 -- Write your query below:
+SELECT store_name, s.store_id, order_id, order_date
+FROM sales.orders o, sales.stores s
+
 
 
 

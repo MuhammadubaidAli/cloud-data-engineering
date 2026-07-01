@@ -35,5 +35,47 @@ INNER JOIN sales.orders
 
 
 
+--INNER JOIN
+
+SELECT product_name, order_id 
+FROM sales.order_items o
+INNER JOIN production.products p
+	ON o.product_id = p.product_id
+
+--LEFT JOIN
+
+
+SELECT p.product_name, i.order_id, o.order_date, i.item_id
+FROM sales.orders o
+LEFT JOIN sales.order_items i
+		ON o.order_id = i.order_id
+	LEFT JOIN production.products p
+			ON i.product_id = p.product_id
+ORDER BY order_date;
+
+
+SELECT *
+FROM sales.orders o
+LEFT JOIN sales.order_items i
+		ON o.order_id = i.order_id
+	LEFT JOIN production.products p
+			ON i.product_id = p.product_id
+ORDER BY order_date;
+
+
+
+SELECT
+	p.product_name,
+	oi.order_id
+FROM
+	sales.order_items oi
+RIGHT JOIN production.products p
+	ON p.product_id = oi.product_id
+ORDER BY order_id;
+
+
+
+
+
 
 
